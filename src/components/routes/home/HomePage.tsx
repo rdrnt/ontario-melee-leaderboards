@@ -60,11 +60,15 @@ export default function HomePage() {
       <Table players={players} />
       <div className="p-4 text-gray-300 flex flex-col items-center">
         <div>Published by <a href="https://www.twitter.com/_drnt" target="_blank" rel="noreferrer"
-             className="text-gray-400 hover:text-indigo-700 mr-2 hover:underline">d r n t</a>.</div>
-        <div>Built by blorppppp. <a href="https://www.buymeacoffee.com/blorppppp" target="_blank" rel="noreferrer"
+             className="text-gray-400 hover:text-indigo-700 mr-2 hover:underline">d r n t</a></div>
+        <div>Submit your profile <a href="https://docs.google.com/forms/d/1hrqZNXV248bKtxPKVKQv1dlevI0_IPREkNypKmarVA8" target="_blank" rel="noreferrer"
+             className="text-gray-400 hover:text-indigo-700 mr-2 hover:underline">here</a></div>
+        <div>Built by blorppppp - <a href="https://www.buymeacoffee.com/blorppppp" target="_blank" rel="noreferrer"
              className="text-gray-400 hover:text-indigo-700 mr-2 hover:underline">
             Buy him a coffee
           </a>☕</div>
+
+        <div className="text-gray-400"><br />Updated every morning & night.</div>
       
       </div>
     </div>
