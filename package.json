@@ -1,5 +1,5 @@
 {
-  "name": "react-pages-boilerplate",
+  "name": "ontario-melee-leaderboards",
   "version": "1.0.0",
   "description": "Simple boilerplate for working with React, redux, react-router and Github Pages",
   "private": "true",
@@ -13,12 +13,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rtivital/react-pages-boilerplate.git"
+    "url": "git+https://github.com/rdrnt/ontario-melee-leaderboards.git"
   },
-  "author": "Vitaly Rtishchev <rtivital@gmail.com> (http://github.com/rtivital)",
+  "author": "Riley D <riley@drnt.ca> (http://github.com/rdrnt)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rtivital/react-pages-boilerplate/issues"
+    "url": "https://github.com/rdrnt/ontario-melee-leaderboards/issues"
   },
   "homepage": "https://rdrnt.github.io/ontario-melee-leaderboards/",
   "dependencies": {
