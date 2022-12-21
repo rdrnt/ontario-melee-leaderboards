@@ -9,13 +9,15 @@ Code powering <https://rdrnt.github.io/ontario-melee-leaderboards/#/>
 - [Eslint](http://eslint.org/) for linting
 - [Tailwind](https://tailwindcss.com/) for css
 
-Fork of [reacts-pages-boilerplate](https://github.com/rtivital/react-pages-boilerplate)
+Fork of [
+CoSlippiLeaderboard](https://github.com/Grantismo/CoSlippiLeaderboard)
 
 ## How it works
 
 The leaderboard is built from two programs:
-- [[src/](https://github.com/Grantismo/CoSlippiLeaderboard/tree/master/src)] A static react website which displays player data
-- [[cron/](https://github.com/Grantismo/CoSlippiLeaderboard/tree/master/cron)] A cron job which pulls connect codes from a google sheet, player data from slippi, and writes that data to json files in `cron/data/`, and then redeploys the static site.
+
+- [[src/](https://github.com/rdrnt/ontario-melee-leaderboards/tree/master/src)] A static react website which displays player data
+- [[cron/](https://github.com/rdrnt/ontario-melee-leaderboards/tree/master/cron)] A cron job which pulls connect codes from a google sheet, player data from slippi, and writes that data to json files in `cron/data/`, and then redeploys the static site.
 
 ## Caveats
 
@@ -26,11 +28,11 @@ The leaderboard is built from two programs:
 
 ## Getting started
 
-- Clone `git clone https://github.com/rtivital/react-pages-boilerplate` or [download](https://github.com/rtivital/react-pages-boilerplate/archive/master.zip) this repository.
+- Clone `git clone https://github.com/rdrnt/ontario-melee-leaderboards`
 - (Optional) Run `nvm use 18.12.0`. This will ensure that you are running the supported version of Node.js. You can nvm installation instructions [here](https://github.com/creationix/nvm).
 - Install dependencies: `yarn`
 - Run the project: `npm start`
-- Set your repoPath in settings.js and  "homepage" in package.json to your github pages url (e.g. <https://grantismo.github.io/CoSlippiLeaderboard/>)
+- Set your repoPath in settings.js and  "homepage" in package.json to your github pages url (e.g. <https://rdrnt.github.io/ontario-melee-leaderboards/#/>)
 - Create a google form to collect player tags from your region. ![image](https://user-images.githubusercontent.com/911232/207989907-256100e3-c215-4699-9ae7-655d5345cbd4.png)
 - Link your google form to a google sheet ![image](https://user-images.githubusercontent.com/911232/207990065-aadc0a30-2561-46b7-a46e-0742af601cec.png)
 - Follow directions in <https://theoephraim.github.io/node-google-spreadsheet/#/getting-started/authentication?id=service-account> to create a service account and credentials to read from the google sheet. Save your creds json file to `secrets/creds.json`
@@ -62,4 +64,4 @@ Example crontab:
 
 ## Support me
 
-☕ [buy me a coffee](https://www.buymeacoffee.com/blorppppp)
+☕ [Buy the original creator a coffee](https://www.buymeacoffee.com/blorppppp)
