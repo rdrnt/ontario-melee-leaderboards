@@ -72,7 +72,7 @@ export default function HomePage() {
             Buy him a coffee
           </a>☕</div>
 
-        <div className="text-gray-300 mt-2 text-sm">Last updated: {updateDesc}. Updates every morning & night.</div>
+        <div className="text-gray-300 mt-2 text-sm items-center">Last updated: {updateDesc}. Updates every morning & night.</div>
       
       </div>
 
