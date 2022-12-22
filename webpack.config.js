@@ -92,7 +92,7 @@ module.exports = {
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <title>${settings.title}</title>
           </head>
-          <body class="bg-gray-600">
+          <body class="bg-slate-800">
             <noscript>
               Enable JavaScript to use Frontend toolbox
             </noscript>

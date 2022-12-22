@@ -53,24 +53,31 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col items-center h-screen p-8">
-      <h1 className="text-3xl m-4 text-center text-white">
+      <h1 className="text-5xl m-4 text-center text-white font-medium">
         {settings.title}
       </h1>
-      <div className="p-1 text-gray-300"> Updated {updateDesc}</div>
-      <Table players={players} />
+
+      <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        <a href="https://docs.google.com/forms/d/1hrqZNXV248bKtxPKVKQv1dlevI0_IPREkNypKmarVA8" target="_blank" rel="noreferrer">
+          Submit your profile
+        </a>
+      </button>
+
       <div className="p-4 text-gray-300 flex flex-col items-center">
         <div>Published by <a href="https://www.twitter.com/_drnt" target="_blank" rel="noreferrer"
              className="text-gray-400 hover:text-indigo-700 mr-2 hover:underline">d r n t</a></div>
-        <div>Submit your profile <a href="https://docs.google.com/forms/d/1hrqZNXV248bKtxPKVKQv1dlevI0_IPREkNypKmarVA8" target="_blank" rel="noreferrer"
-             className="text-gray-400 hover:text-indigo-700 mr-2 hover:underline">here</a></div>
+
         <div>Built by blorppppp - <a href="https://www.buymeacoffee.com/blorppppp" target="_blank" rel="noreferrer"
              className="text-gray-400 hover:text-indigo-700 mr-2 hover:underline">
             Buy him a coffee
           </a>☕</div>
 
-        <div className="text-gray-400"><br />Updated every morning & night.</div>
+        <div className="text-gray-300 mt-2 text-sm">Last updated: {updateDesc}. Updates every morning & night.</div>
       
       </div>
+
+      { /* The player table */}
+      <Table players={players} />
     </div>
   );
 }
