@@ -43,13 +43,6 @@ export default function HomePage() {
   // continuously update
   const updatedAt = dayjs(timestamp.updated);
   const [updateDesc, setUpdateDesc] = useState(updatedAt.fromNow())
-  useEffect(() => {
-    const interval = setInterval(
-      () => setUpdateDesc(updatedAt.fromNow()), 1000*60);
-    return () => {
-      clearInterval(interval);
-    };
-  }, []);
 
   return (
     <div className="flex flex-col items-center h-screen p-8">
@@ -64,15 +57,16 @@ export default function HomePage() {
       </button>
 
       <div className="p-4 text-gray-300 flex flex-col items-center">
-        <div>Published by <a href="https://www.twitter.com/_drnt" target="_blank" rel="noreferrer"
+        <div>Created by <a href="https://www.twitter.com/_drnt" target="_blank" rel="noreferrer"
              className="text-gray-400 hover:text-indigo-700 mr-2 hover:underline">d r n t</a></div>
 
-        <div>Built by blorppppp - <a href="https://www.buymeacoffee.com/blorppppp" target="_blank" rel="noreferrer"
-             className="text-gray-400 hover:text-indigo-700 mr-2 hover:underline">
-            Buy him a coffee
-          </a>☕</div>
+        <div className="text-gray-300 mt-2 text-sm text-center">Last updated: {updateDesc}. Updates every morning & night.</div>
 
-        <div className="text-gray-300 mt-2 text-sm items-center">Last updated: {updateDesc}. Updates every morning & night.</div>
+        <div className="text-gray-300 mt-2 text-sm text-center"><br />
+        Fork of <a href="https://github.com/Grantismo/CoSlippiLeaderboard" target="_blank" rel="noreferrer"
+             className="text-gray-400 hover:text-indigo-700 mr-2 hover:underline">
+            Grantismo/CoSlippiLeaderboard
+        </a></div>
       
       </div>
 
