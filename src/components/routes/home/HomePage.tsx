@@ -7,6 +7,7 @@ import timestamp from '../../../../cron/data/timestamp.json';
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime' // import plugin
 import * as settings from '../../../../settings'
+import { ALL_PROVINCES } from '../../../lib/provinces';
 dayjs.extend(relativeTime)
 
 
@@ -28,21 +29,33 @@ const sortAndPopulatePlayers = (players: Player[]) => {
 
 export default function HomePage() {
 
-  const rankedPlayersOld = sortAndPopulatePlayers(playersOld)
-  const oldPlayersMap = new Map(
-    rankedPlayersOld.map((p) => [p.connectCode.code, p]));
-  
-  const players = sortAndPopulatePlayers(playersNew);
-  players.forEach((p) => {
-    const oldData = oldPlayersMap.get(p.connectCode.code)
-    if(oldData) {
-      p.oldRankedNetplayProfile = oldData.rankedNetplayProfile
-    }
-  })
-
   // continuously update
   const updatedAt = dayjs(timestamp.updated);
   const [updateDesc, setUpdateDesc] = useState(updatedAt.fromNow())
+
+  // filtering
+  const [regionFilter, setRegionFilter] = React.useState('ALL');
+
+  const players = React.useMemo(() => {
+    const rankedPlayersOld = sortAndPopulatePlayers(playersOld)
+      const oldPlayersMap = new Map(
+        rankedPlayersOld.map((p) => [p.connectCode.code, p]));
+  
+      const players = sortAndPopulatePlayers(playersNew);
+      players.forEach((p) => {
+        const oldData = oldPlayersMap.get(p.connectCode.code)
+        if(oldData) {
+          p.oldRankedNetplayProfile = oldData.rankedNetplayProfile
+        }
+      })
+
+    if (regionFilter !== 'ALL') {
+      const playersByRegion = players.filter(player => player.region.province === regionFilter);
+      return playersByRegion;
+    }
+
+    return players;
+  }, [regionFilter]);
 
   return (
     <div className="flex flex-col items-center h-screen p-8">
@@ -50,7 +63,20 @@ export default function HomePage() {
         {settings.title}
       </h1>
 
-      <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+    <div className="mt-2">
+      <label className="mr-3 text-white">Filter by region:</label>
+      <select className="bg-slate-50 rounded py-1 px-1" onChange={(event) => {
+        // console.log('Value', event.target.value);
+        setRegionFilter(event.target.value);
+      }}>
+        <option value="ALL">All</option>
+        {ALL_PROVINCES.map(province => (
+          <option key={province} value={province}>{province}</option>
+        ))}
+      </select>
+    </div>
+
+    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">
         <a href="https://docs.google.com/forms/d/1hrqZNXV248bKtxPKVKQv1dlevI0_IPREkNypKmarVA8" target="_blank" rel="noreferrer">
           Submit your profile
         </a>
@@ -60,7 +86,7 @@ export default function HomePage() {
         <div>Created by <a href="https://www.twitter.com/_drnt" target="_blank" rel="noreferrer"
              className="text-gray-400 hover:text-indigo-700 mr-2 hover:underline">d r n t</a></div>
 
-        <div className="text-gray-300 mt-2 text-sm text-center">Last updated: {updateDesc}. Updates every morning & night.</div>
+        <div className="text-gray-300 text-sm text-center">Last updated: {updateDesc}. Updates every morning & night.</div>
 
         <div className="text-gray-300 mt-2 text-sm text-center"><br />
         Fork of <a href="https://github.com/Grantismo/CoSlippiLeaderboard" target="_blank" rel="noreferrer"
