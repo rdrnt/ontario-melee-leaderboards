@@ -66,7 +66,6 @@ export default function HomePage() {
     <div className="mt-2">
       <label className="mr-3 text-white">Filter by region:</label>
       <select className="bg-slate-50 rounded py-1 px-1" onChange={(event) => {
-        // console.log('Value', event.target.value);
         setRegionFilter(event.target.value);
       }}>
         <option value="ALL">All</option>

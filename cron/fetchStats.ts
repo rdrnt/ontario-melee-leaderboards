@@ -16,6 +16,12 @@ const SpreadsheetColumnKeys = {
   'CONNECT_CODE': 'What is your slippi connect code (e.g. BLRP#745)',
 }
 
+function uniq(a, param){
+  return a.filter(function(item, pos, array){
+      return array.map(function(mapItem){ return mapItem[param]; }).indexOf(item[param]) === pos;
+  })
+}
+
 const getPlayerConnectCodes = async (): Promise<string[]> => {
   const doc = new GoogleSpreadsheet(settings.spreadsheetID);
   await doc.useServiceAccountAuth(creds);
@@ -48,10 +54,6 @@ const getPlayerSpreadsheetData = async (): Promise<{ connectCode: string; provin
     }
   }
 
-  allRows.forEach(row => {
-    console.log('Row', row);
-  })
-
   return allRows;
 }
 
@@ -59,7 +61,9 @@ const getPlayers = async () => {
   const spreadsheetData = await getPlayerSpreadsheetData();
 
   console.log(`Found ${spreadsheetData.length} player codes`)
-  const allData = spreadsheetData.map(playerData => getPlayerDataThrottled(playerData.connectCode))
+  const allUniqueSpreadsheetData = uniq(spreadsheetData, 'connectCode');
+  const allData = allUniqueSpreadsheetData.map(playerData => getPlayerDataThrottled(playerData.connectCode))
+
   const results = await Promise.all(allData.map(p => p.catch(e => e)));
   const validResults = results.filter(result => !(result instanceof Error));
   const unsortedPlayers = validResults
