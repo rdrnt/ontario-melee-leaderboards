@@ -16,6 +16,10 @@ interface RankedNetplayProfile {
 
 export interface Player {
   displayName: string;
+  region: {
+    province: string;
+    city: string;
+  };
   connectCode: {
     code: string;
   };
