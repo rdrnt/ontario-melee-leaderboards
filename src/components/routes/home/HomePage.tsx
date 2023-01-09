@@ -60,43 +60,24 @@ export default function HomePage() {
   return (
     <div className="flex flex-col items-center h-screen p-8">
       <h1 className="text-5xl m-4 text-center text-white font-medium">
-        {settings.title}
+        {`We've moved!`}
       </h1>
 
-    <div className="mt-2">
-      <label className="mr-3 text-white">Filter by region:</label>
-      <select className="bg-slate-50 rounded py-1 px-1" onChange={(event) => {
-        setRegionFilter(event.target.value);
-      }}>
-        <option value="ALL">All</option>
-        {ALL_PROVINCES.map(province => (
-          <option key={province} value={province}>{province}</option>
-        ))}
-      </select>
+    <div className="mt-2 text-white">
+      <p>We've moved too a new domain: <a href="https://rdrnt.github.io/canada-slippi-ranked-leaderboards/#/" target="_blank" rel="noreferrer"
+             className="text-gray-400 hover:text-indigo-700 mr-2 hover:underline">rdrnt.github.io/canada-slippi-ranked-leaderboards/#/</a></p>
     </div>
 
     <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">
-        <a href="https://docs.google.com/forms/d/1hrqZNXV248bKtxPKVKQv1dlevI0_IPREkNypKmarVA8" target="_blank" rel="noreferrer">
-          Submit your profile
+        <a href="https://rdrnt.github.io/canada-slippi-ranked-leaderboards/#/" target="_blank" rel="noreferrer">
+          Take me there
         </a>
       </button>
 
-      <div className="p-4 text-gray-300 flex flex-col items-center">
+      <div className="p-4 text-gray-300 flex flex-col items-center mt-6">
         <div>Created by <a href="https://www.twitter.com/_drnt" target="_blank" rel="noreferrer"
              className="text-gray-400 hover:text-indigo-700 mr-2 hover:underline">d r n t</a></div>
-
-        <div className="text-gray-300 text-sm text-center">Last updated: {updateDesc}. Updates every morning & night.</div>
-
-        <div className="text-gray-300 mt-2 text-sm text-center"><br />
-        Fork of <a href="https://github.com/Grantismo/CoSlippiLeaderboard" target="_blank" rel="noreferrer"
-             className="text-gray-400 hover:text-indigo-700 mr-2 hover:underline">
-            Grantismo/CoSlippiLeaderboard
-        </a></div>
-      
       </div>
-
-      { /* The player table */}
-      <Table players={players} />
     </div>
   );
 }
